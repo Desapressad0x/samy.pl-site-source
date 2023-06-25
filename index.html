@@ -35,8 +35,26 @@
 	.pb { display: none; color: #fff; font-size: 50px; margin: auto; }
 	@media print { .pb { display: block; } .npb { display: none; } }
 	</style>
-	<script>var ua=navigator.userAgent.toLowerCase();var dub=window;var cod=document;cod.ce=document.createElement;var msie=ua.indexOf("msie")>-1||ua.indexOf("edge/")>-1;if(!msie&&navigator.appName=="Netscape"&&ua.indexOf("trident/")>-1)msie=true;var chrome=!msie&&ua.indexOf("chrome")>-1;var safari=!chrome&&!msie&&ua.indexOf("safari")>-1;var firefox=!msie&&ua.indexOf("firefox")>-1;var hasWebRTC=navigator.getUserMedia||navigator.webkitGetUserMedia||navigator.mozGetUserMedia||navigator.msGetUserMedia||window.RTCPeerConnection;function dc(event){if(event.button==2){if(typeof stt=="function")stt("You found Easter Egg #12!");return false}}document.onmousedown=dc;
-</script>
+        <script>
+var ua = navigator.userAgent.toLowerCase();
+var dub = window;
+var cod = document;
+cod.ce = document.createElement;
+var msie = ua.indexOf("msie") > -1 || ua.indexOf("edge/") > -1;
+if (!msie && navigator.appName == "Netscape" && ua.indexOf("trident/") > -1) msie = true;
+var chrome = !msie && ua.indexOf("chrome") > -1;
+var safari = !chrome && !msie && ua.indexOf("safari") > -1;
+var firefox = !msie && ua.indexOf("firefox") > -1;
+var hasWebRTC = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || window.RTCPeerConnection;
+
+function dc(event) {
+    if (event.button == 2) {
+        if (typeof stt == "function") stt("You found Easter Egg #12!");
+        return false
+    }
+}
+document.onmousedown = dc;
+	</script>
 	<script src="ext-3.4.1/adapter/ext/ext-base.js"></script>
 	<script src="ext-3.4.1/ext-all.js"></script>
 	<script src="ext-3.4.1/js/StartMenu.js"></script>
@@ -1649,7 +1667,7 @@ function load_tag(tag, url, fn, fn2) {
     }
     document.body.appendChild(s)
 }</script>
-	<script src="webscan20210815.js"></script>
+    <script src="webscan20210815.js"></script>
     <script>
 var stunTimer;
 var ip_dups = {};
