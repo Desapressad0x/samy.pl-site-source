@@ -1,0 +1,2506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+	<title>samy kamkar H) home</title>
+
+	<script>
+		var YOU_FOUND_THE_SOURCE_TO_SAMY_PL = "you are awesome!"
+		var YOU_ALSO_FOUND_EASTER_EGG = 25
+
+		/*
+			Thanks for playing, and great job finding the source :)
+
+			Suggestions, new browser patches, and new browser bugs welcome: egg@samy.pl
+
+      Check the first source to samy.pl for the current total number of easter eggs.
+			I hope you've enjoyed running into a few, and maybe you'll enjoy finding a few more!
+
+			H) samy
+		*/
+	</script>
+	
+	<noscript>
+    <meta http-equiv="refresh" content="0; url=/code/?ns=1" />
+	</noscript>
+  <meta name="description" content="samy kamkar's open source projects, code, hardware, applied hacking, videos, talks, and other infectious technology H)">
+	<script>
+	//if (navigator.userAgent.match(/Android|iPhone|iPod/i) && document.cookie.indexOf("iphone_redirect=false") == -1) window.location = "code/"
+	</script>
+	<link rel="stylesheet" type="text/css" href="resources/css/ext-all.css" />
+	<link rel="stylesheet" type="text/css" href="css/desktop.css" />
+	<link rel="stylesheet" type="text/css" href="resources/css/xtheme-slickness.css" />
+	<link rel="stylesheet" type="text/css" href="resources/css/xtheme-symphony.css" />
+	<style>
+	.pb { display: none; color: #fff; font-size: 50px; margin: auto; }
+	@media print { .pb { display: block; } .npb { display: none; } }
+	</style>
+	<script>var ua=navigator.userAgent.toLowerCase();var dub=window;var cod=document;cod.ce=document.createElement;var msie=ua.indexOf("msie")>-1||ua.indexOf("edge/")>-1;if(!msie&&navigator.appName=="Netscape"&&ua.indexOf("trident/")>-1)msie=true;var chrome=!msie&&ua.indexOf("chrome")>-1;var safari=!chrome&&!msie&&ua.indexOf("safari")>-1;var firefox=!msie&&ua.indexOf("firefox")>-1;var hasWebRTC=navigator.getUserMedia||navigator.webkitGetUserMedia||navigator.mozGetUserMedia||navigator.msGetUserMedia||window.RTCPeerConnection;function dc(event){if(event.button==2){if(typeof stt=="function")stt("You found Easter Egg #12!");return false}}document.onmousedown=dc;
+</script>
+	<script src="ext-3.4.1/adapter/ext/ext-base.js"></script>
+	<script src="ext-3.4.1/ext-all.js"></script>
+	<script src="ext-3.4.1/js/StartMenu.js"></script>
+	<script src="ext-3.4.1/js/TaskBar.js"></script>
+	<script src="ext-3.4.1/js/Desktop.js"></script>
+	<script src="ext-3.4.1/js/App.js"></script>
+	<script src="ext-3.4.1/js/Module.js"></script>
+	<script src="/js/jquery-1.12.4.min.js" crossorigin="anonymous"></script>
+<script>
+if (!window.$)(s = (z = document).getElementsByTagName(x = "script")[0]).parentNode.insertBefore(z.createElement(x), s).src = "//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js";
+(function() {
+    if (typeof window.CustomEvent === "function") return false;
+
+    function CustomEvent(event, params) {
+        params = params || {
+            bubbles: false,
+            cancelable: false,
+            detail: undefined
+        };
+        var evt = document.createEvent("CustomEvent");
+        evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+        return evt
+    }
+    CustomEvent.prototype = window.Event.prototype;
+    window.CustomEvent = CustomEvent
+})();
+(function() {
+    "use strict";
+    var devtools = {
+        open: false,
+        first: true,
+        orientation: null
+    };
+    window.lq = devtools;
+    var threshold = 160;
+    var emitEvent = function(state, orientation, eventname) {
+        if (!eventname) eventname = "devtoolschange";
+        window.dispatchEvent(new CustomEvent(eventname, {
+            detail: {
+                open: state,
+                orientation: orientation
+            }
+        }))
+    };
+    setInterval(function() {
+        var widthThreshold = window.outerWidth - window.innerWidth > threshold;
+        var heightThreshold = window.outerHeight - window.innerHeight > threshold;
+        var orientation = widthThreshold ? "vertical" : "horizontal";
+        if (!(heightThreshold && widthThreshold) && (window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized || widthThreshold || heightThreshold)) {
+            if (!devtools.open || devtools.orientation !== orientation) {
+                emitEvent(true, orientation);
+                if (lq.first) {
+                    lq.first = false;
+                    emitEvent(true, orientation, "firstevent")
+                }
+            }
+            devtools.open = true;
+            devtools.orientation = orientation
+        } else {
+            if (devtools.open) {
+                emitEvent(false, null);
+                if (lq.first) {
+                    lq.first = false;
+                    emitEvent(false, null, "firstevent")
+                }
+            }
+            devtools.open = false;
+            devtools.orientation = null
+        }
+    }, 1e3);
+    if (typeof module !== "undefined" && module.exports) {
+        module.exports = devtools
+    } else {
+        window.devtools = devtools
+    }
+})();
+! function(t, n) {
+    "object" == typeof exports && "object" == typeof module ? module.exports = n() : "function" == typeof define && define.amd ? define([], n) : "object" == typeof exports ? exports.dd = n() : t.dd = n()
+}("undefined" != typeof self ? self : this, function() {
+    return function(t) {
+        var n = {};
+
+        function e(r) {
+            if (n[r]) return n[r].exports;
+            var i = n[r] = {
+                i: r,
+                l: !1,
+                exports: {}
+            };
+            return t[r].call(i.exports, i, i.exports, e), i.l = !0, i.exports
+        }
+        return e.m = t, e.c = n, e.d = function(t, n, r) {
+            e.o(t, n) || Object.defineProperty(t, n, {
+                configurable: !1,
+                enumerable: !0,
+                get: r
+            })
+        }, e.n = function(t) {
+            var n = t && t.__esModule ? function() {
+                return t.default
+            } : function() {
+                return t
+            };
+            return e.d(n, "a", n), n
+        }, e.o = function(t, n) {
+            return Object.prototype.hasOwnProperty.call(t, n)
+        }, e.p = "", e(e.s = 4)
+    }([function(t, n, e) {
+        "use strict";
+        (function(t) {
+            n.c = function() {
+                return "undefined" != typeof performance ? performance.now() : Date.now()
+            }, n.b = function(t) {
+                void 0 === t && (t = {});
+                for (var n = t.includes, e = void 0 === n ? [] : n, r = t.excludes, i = void 0 === r ? [] : r, o = !1, u = !1, c = 0, a = e; c < a.length; c++) {
+                    var f = a[c];
+                    if (!0 === f) {
+                        o = !0;
+                        break
+                    }
+                }
+                for (var s = 0, l = i; s < l.length; s++) {
+                    var f = l[s];
+                    if (!0 === f) {
+                        u = !0;
+                        break
+                    }
+                }
+                return o && !u
+            }, n.d = function(t, n, e) {
+                var o = i.a[t];
+                if (void 0 === o) return !1;
+                return Object(r.compare)(o, n, e)
+            }, n.a = function() {
+                if ("undefined" != typeof self) return self;
+                if ("undefined" != typeof window) return window;
+                if (void 0 !== t) return t;
+                return this
+            };
+            var r = e(11),
+                i = (e.n(r), e(5))
+        }).call(n, e(10))
+    }, function(t, n, e) {
+        "use strict";
+        e.d(n, "c", function() {
+            return f
+        }), e.d(n, "d", function() {
+            return s
+        }), e.d(n, "b", function() {
+            return l
+        }), e.d(n, "f", function() {
+            return d
+        }), e.d(n, "a", function() {
+            return h
+        }), e.d(n, "e", function() {
+            return p
+        });
+        var r, i, o, u = e(3),
+            c = e(0),
+            a = Object(c.a)(),
+            f = "InstallTrigger" in ((null === a || void 0 === a ? void 0 : a.window) || {}) || /firefox/i.test(u.b),
+            s = /trident/i.test(u.b) || /msie/i.test(u.b),
+            l = /edge/i.test(u.b),
+            d = /webkit/i.test(u.b) && !l,
+            h = void 0 !== (null === (r = null === a || void 0 === a ? void 0 : a.window) || void 0 === r ? void 0 : r.chrome) || /chrome/i.test(u.b) || /CriOS/i.test(u.b),
+            p = "[object SafariRemoteNotification]" === ((null === (o = null === (i = null === a || void 0 === a ? void 0 : a.window) || void 0 === i ? void 0 : i.safari) || void 0 === o ? void 0 : o.pushNotification) || !1).toString() || /safari/i.test(u.b) && !h
+    }, function(t, n, e) {
+        "use strict";
+        e.d(n, "b", function() {
+            return o
+        }), e.d(n, "c", function() {
+            return u
+        }), e.d(n, "a", function() {
+            return c
+        });
+        var r = e(1);
+
+        function i(t) {
+            if (console) {
+                if (!r.d && !r.b) return console[t];
+                if ("log" === t || "clear" === t) return function() {
+                    for (var n = [], e = 0; e < arguments.length; e++) n[e] = arguments[e];
+                    console[t].apply(console, n)
+                }
+            }
+            return function() {
+                for (var t = [], n = 0; n < arguments.length; n++) t[n] = arguments[n]
+            }
+        }
+        var o = i("log"),
+            u = i("table"),
+            c = i("clear")
+    }, function(t, n, e) {
+        "use strict";
+        n.a = function() {
+            for (var t, n = [], e = 0; e < arguments.length; e++) n[e] = arguments[e];
+            if (null === o || void 0 === o ? void 0 : o.document) return (t = o.document).createElement.apply(t, n);
+            return {}
+        }, e.d(n, "b", function() {
+            return u
+        });
+        var r, i = e(0),
+            o = Object(i.a)();
+        var u = (null === (r = null === o || void 0 === o ? void 0 : o.navigator) || void 0 === r ? void 0 : r.userAgent) || "xxxxx"
+    }, function(t, n, e) {
+        "use strict";
+        Object.defineProperty(n, "__esModule", {
+            value: !0
+        }), n.addListener = function(t) {
+            l.addListener(t)
+        }, n.removeListener = function(t) {
+            l.removeListener(t)
+        }, n.isLaunch = function() {
+            return l.isLaunch()
+        }, n.launch = function() {
+            l.launch()
+        }, n.stop = function() {
+            l.stop()
+        }, n.setDetectDelay = function(t) {
+            l.setDetectDelay(t)
+        };
+        var r = e(7),
+            i = e(8);
+        e.d(n, "DD", function() {
+            return r.a
+        }), e.d(n, "checkers", function() {
+            return i
+        });
+        var o = e(0);
+        e.d(n, "match", function() {
+            return o.b
+        }), e.d(n, "specificVersionMatch", function() {
+            return o.d
+        });
+        var u = e(1);
+        e.d(n, "isFirefox", function() {
+            return u.c
+        }), e.d(n, "isIE", function() {
+            return u.d
+        }), e.d(n, "isEdge", function() {
+            return u.b
+        }), e.d(n, "isWebkit", function() {
+            return u.f
+        }), e.d(n, "isChrome", function() {
+            return u.a
+        }), e.d(n, "isSafari", function() {
+            return u.e
+        });
+        var c = e(2);
+        e.d(n, "log", function() {
+            return c.b
+        }), e.d(n, "table", function() {
+            return c.c
+        }), e.d(n, "clear", function() {
+            return c.a
+        });
+        var a = e(18);
+        e.d(n, "isMobile", function() {
+            return a.a
+        });
+        var f = e(5);
+        e.d(n, "versionMap", function() {
+            return f.a
+        });
+        var s = e(6);
+        e.d(n, "isMac", function() {
+            return s.d
+        }), e.d(n, "isIpad", function() {
+            return s.b
+        }), e.d(n, "isIphone", function() {
+            return s.c
+        }), e.d(n, "isAndroid", function() {
+            return s.a
+        }), e.d(n, "isWindows", function() {
+            return s.e
+        });
+        var l = new r.a({
+            checkers: [i.performanceChecker]
+        });
+        n.default = l
+    }, function(t, n, e) {
+        "use strict";
+        e.d(n, "a", function() {
+            return r
+        });
+        for (var r = {}, i = 0, o = (e(3).b || "").match(/\w+\/(\d|\.)+(\s|$)/gi) || []; i < o.length; i++) {
+            var u = o[i].split("/"),
+                c = u[0],
+                a = u[1];
+            r[c] = a
+        }
+    }, function(t, n, e) {
+        "use strict";
+        e.d(n, "d", function() {
+            return i
+        }), e.d(n, "b", function() {
+            return o
+        }), e.d(n, "c", function() {
+            return u
+        }), e.d(n, "a", function() {
+            return c
+        }), e.d(n, "e", function() {
+            return a
+        });
+        var r = e(3),
+            i = /macintosh/i.test(r.b),
+            o = /ipad/i.test(r.b) || i && navigator.maxTouchPoints > 1,
+            u = /iphone/i.test(r.b),
+            c = /android/i.test(r.b),
+            a = /windows/i.test(r.b)
+    }, function(t, n, e) {
+        "use strict";
+        e.d(n, "a", function() {
+            return o
+        });
+        var r = this && this.__awaiter || function(t, n, e, r) {
+                return new(e || (e = Promise))(function(i, o) {
+                    function u(t) {
+                        try {
+                            a(r.next(t))
+                        } catch (t) {
+                            o(t)
+                        }
+                    }
+
+                    function c(t) {
+                        try {
+                            a(r.throw(t))
+                        } catch (t) {
+                            o(t)
+                        }
+                    }
+
+                    function a(t) {
+                        t.done ? i(t.value) : function(t) {
+                            return t instanceof e ? t : new e(function(n) {
+                                n(t)
+                            })
+                        }(t.value).then(u, c)
+                    }
+                    a((r = r.apply(t, n || [])).next())
+                })
+            },
+            i = this && this.__generator || function(t, n) {
+                var e, r, i, o, u = {
+                    label: 0,
+                    sent: function() {
+                        if (1 & i[0]) throw i[1];
+                        return i[1]
+                    },
+                    trys: [],
+                    ops: []
+                };
+                return o = {
+                    next: c(0),
+                    throw: c(1),
+                    return: c(2)
+                }, "function" == typeof Symbol && (o[Symbol.iterator] = function() {
+                    return this
+                }), o;
+
+                function c(o) {
+                    return function(c) {
+                        return function(o) {
+                            if (e) throw new TypeError("Generator is already executing.");
+                            for (; u;) try {
+                                if (e = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i;
+                                switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) {
+                                    case 0:
+                                    case 1:
+                                        i = o;
+                                        break;
+                                    case 4:
+                                        return u.label++, {
+                                            value: o[1],
+                                            done: !1
+                                        };
+                                    case 5:
+                                        u.label++, r = o[1], o = [0];
+                                        continue;
+                                    case 7:
+                                        o = u.ops.pop(), u.trys.pop();
+                                        continue;
+                                    default:
+                                        if (!(i = (i = u.trys).length > 0 && i[i.length - 1]) && (6 === o[0] || 2 === o[0])) {
+                                            u = 0;
+                                            continue
+                                        }
+                                        if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) {
+                                            u.label = o[1];
+                                            break
+                                        }
+                                        if (6 === o[0] && u.label < i[1]) {
+                                            u.label = i[1], i = o;
+                                            break
+                                        }
+                                        if (i && u.label < i[2]) {
+                                            u.label = i[2], u.ops.push(o);
+                                            break
+                                        }
+                                        i[2] && u.ops.pop(), u.trys.pop();
+                                        continue
+                                }
+                                o = n.call(t, u)
+                            } catch (t) {
+                                o = [6, t], r = 0
+                            } finally {
+                                e = i = 0
+                            }
+                            if (5 & o[0]) throw o[1];
+                            return {
+                                value: o[0] ? o[1] : void 0,
+                                done: !0
+                            }
+                        }([o, c])
+                    }
+                }
+            },
+            o = function() {
+                function t(t) {
+                    var n = t.checkers;
+                    this._listeners = [], this._isOpen = !1, this._detectLoopStopped = !0, this._detectLoopDelay = 500, this._checkers = n.slice()
+                }
+                return t.prototype.launch = function() {
+                    this._detectLoopDelay <= 0 && this.setDetectDelay(500), this._detectLoopStopped && (this._detectLoopStopped = !1, this._detectLoop())
+                }, t.prototype.stop = function() {
+                    this._detectLoopStopped || (this._detectLoopStopped = !0, clearTimeout(this._timer))
+                }, t.prototype.isLaunch = function() {
+                    return !this._detectLoopStopped
+                }, t.prototype.setDetectDelay = function(t) {
+                    this._detectLoopDelay = t
+                }, t.prototype.addListener = function(t) {
+                    this._listeners.push(t)
+                }, t.prototype.removeListener = function(t) {
+                    this._listeners = this._listeners.filter(function(n) {
+                        return n !== t
+                    })
+                }, t.prototype._broadcast = function(t) {
+                    for (var n = 0, e = this._listeners; n < e.length; n++) {
+                        var r = e[n];
+                        try {
+                            r(t.isOpen, t)
+                        } catch (t) {}
+                    }
+                }, t.prototype._detectLoop = function() {
+                    return r(this, void 0, void 0, function() {
+                        var t, n, e, r, o, u = this;
+                        return i(this, function(i) {
+                            switch (i.label) {
+                                case 0:
+                                    t = !1, n = "", e = 0, r = this._checkers, i.label = 1;
+                                case 1:
+                                    return e < r.length ? [4, (o = r[e]).isEnable()] : [3, 6];
+                                case 2:
+                                    return i.sent() ? (n = o.name, [4, o.isOpen()]) : [3, 4];
+                                case 3:
+                                    t = i.sent(), i.label = 4;
+                                case 4:
+                                    if (t) return [3, 6];
+                                    i.label = 5;
+                                case 5:
+                                    return e++, [3, 1];
+                                case 6:
+                                    return t != this._isOpen && (this._isOpen = t, this._broadcast({
+                                        isOpen: t,
+                                        checkerName: n
+                                    })), this._detectLoopDelay > 0 ? this._timer = setTimeout(function() {
+                                        return u._detectLoop()
+                                    }, this._detectLoopDelay) : this.stop(), [2]
+                            }
+                        })
+                    })
+                }, t
+            }()
+    }, function(t, n, e) {
+        "use strict";
+        Object.defineProperty(n, "__esModule", {
+            value: !0
+        });
+        var r = e(9);
+        e.d(n, "depRegToStringChecker", function() {
+            return r.a
+        });
+        var i = e(12);
+        e.d(n, "elementIdChecker", function() {
+            return i.a
+        });
+        var o = e(13);
+        e.d(n, "functionToStringChecker", function() {
+            return o.a
+        });
+        var u = e(14);
+        e.d(n, "regToStringChecker", function() {
+            return u.a
+        });
+        var c = e(15);
+        e.d(n, "debuggerChecker", function() {
+            return c.a
+        });
+        var a = e(16);
+        e.d(n, "dateToStringChecker", function() {
+            return a.a
+        });
+        var f = e(17);
+        e.d(n, "performanceChecker", function() {
+            return f.a
+        })
+    }, function(t, n, e) {
+        "use strict";
+        e.d(n, "a", function() {
+            return s
+        });
+        var r = e(1),
+            i = e(2),
+            o = e(0),
+            u = this && this.__awaiter || function(t, n, e, r) {
+                return new(e || (e = Promise))(function(i, o) {
+                    function u(t) {
+                        try {
+                            a(r.next(t))
+                        } catch (t) {
+                            o(t)
+                        }
+                    }
+
+                    function c(t) {
+                        try {
+                            a(r.throw(t))
+                        } catch (t) {
+                            o(t)
+                        }
+                    }
+
+                    function a(t) {
+                        t.done ? i(t.value) : function(t) {
+                            return t instanceof e ? t : new e(function(n) {
+                                n(t)
+                            })
+                        }(t.value).then(u, c)
+                    }
+                    a((r = r.apply(t, n || [])).next())
+                })
+            },
+            c = this && this.__generator || function(t, n) {
+                var e, r, i, o, u = {
+                    label: 0,
+                    sent: function() {
+                        if (1 & i[0]) throw i[1];
+                        return i[1]
+                    },
+                    trys: [],
+                    ops: []
+                };
+                return o = {
+                    next: c(0),
+                    throw: c(1),
+                    return: c(2)
+                }, "function" == typeof Symbol && (o[Symbol.iterator] = function() {
+                    return this
+                }), o;
+
+                function c(o) {
+                    return function(c) {
+                        return function(o) {
+                            if (e) throw new TypeError("Generator is already executing.");
+                            for (; u;) try {
+                                if (e = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i;
+                                switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) {
+                                    case 0:
+                                    case 1:
+                                        i = o;
+                                        break;
+                                    case 4:
+                                        return u.label++, {
+                                            value: o[1],
+                                            done: !1
+                                        };
+                                    case 5:
+                                        u.label++, r = o[1], o = [0];
+                                        continue;
+                                    case 7:
+                                        o = u.ops.pop(), u.trys.pop();
+                                        continue;
+                                    default:
+                                        if (!(i = (i = u.trys).length > 0 && i[i.length - 1]) && (6 === o[0] || 2 === o[0])) {
+                                            u = 0;
+                                            continue
+                                        }
+                                        if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) {
+                                            u.label = o[1];
+                                            break
+                                        }
+                                        if (6 === o[0] && u.label < i[1]) {
+                                            u.label = i[1], i = o;
+                                            break
+                                        }
+                                        if (i && u.label < i[2]) {
+                                            u.label = i[2], u.ops.push(o);
+                                            break
+                                        }
+                                        i[2] && u.ops.pop(), u.trys.pop();
+                                        continue
+                                }
+                                o = n.call(t, u)
+                            } catch (t) {
+                                o = [6, t], r = 0
+                            } finally {
+                                e = i = 0
+                            }
+                            if (5 & o[0]) throw o[1];
+                            return {
+                                value: o[0] ? o[1] : void 0,
+                                done: !0
+                            }
+                        }([o, c])
+                    }
+                }
+            },
+            a = / /,
+            f = !1;
+        a.toString = function() {
+            return f = !0, s.name
+        };
+        var s = {
+            name: "dep-reg-to-string",
+            isOpen: function() {
+                return u(this, void 0, void 0, function() {
+                    return c(this, function(t) {
+                        return f = !1, Object(i.c)({
+                            dep: a
+                        }), Object(i.a)(), [2, f]
+                    })
+                })
+            },
+            isEnable: function() {
+                return u(this, void 0, void 0, function() {
+                    return c(this, function(t) {
+                        return [2, Object(o.b)({
+                            includes: [!0],
+                            excludes: [r.c, r.d]
+                        })]
+                    })
+                })
+            }
+        }
+    }, function(t, n) {
+        var e;
+        e = function() {
+            return this
+        }();
+        try {
+            e = e || Function("return this")() || (0, eval)("this")
+        } catch (t) {
+            "object" == typeof window && (e = window)
+        }
+        t.exports = e
+    }, function(t, n, e) {
+        var r, i, o;
+        ! function(e, u) {
+            i = [], void 0 === (o = "function" == typeof(r = u) ? r.apply(n, i) : r) || (t.exports = o)
+        }(0, function() {
+            var t = /^v?(?:\d+)(\.(?:[x*]|\d+)(\.(?:[x*]|\d+)(\.(?:[x*]|\d+))?(?:-[\da-z\-]+(?:\.[\da-z\-]+)*)?(?:\+[\da-z\-]+(?:\.[\da-z\-]+)*)?)?)?$/i;
+
+            function n(t) {
+                var n = t.replace(/^v/, "").replace(/\+.*$/, ""),
+                    e = function(t, n) {
+                        return -1 === t.indexOf(n) ? t.length : t.indexOf(n)
+                    }(n, "-"),
+                    r = n.substring(0, e).split(".");
+                return r.push(n.substring(e + 1)), r
+            }
+
+            function e(t) {
+                return isNaN(Number(t)) ? t : Number(t)
+            }
+
+            function r(n) {
+                if ("string" != typeof n) throw new TypeError("Invalid argument expected string");
+                if (!t.test(n)) throw new Error("Invalid argument not valid semver ('" + n + "' received)")
+            }
+
+            function i(t, i) {
+                [t, i].forEach(r);
+                for (var o = n(t), u = n(i), c = 0; c < Math.max(o.length - 1, u.length - 1); c++) {
+                    var a = parseInt(o[c] || 0, 10),
+                        f = parseInt(u[c] || 0, 10);
+                    if (a > f) return 1;
+                    if (f > a) return -1
+                }
+                var s = o[o.length - 1],
+                    l = u[u.length - 1];
+                if (s && l) {
+                    var d = s.split(".").map(e),
+                        h = l.split(".").map(e);
+                    for (c = 0; c < Math.max(d.length, h.length); c++) {
+                        if (void 0 === d[c] || "string" == typeof h[c] && "number" == typeof d[c]) return -1;
+                        if (void 0 === h[c] || "string" == typeof d[c] && "number" == typeof h[c]) return 1;
+                        if (d[c] > h[c]) return 1;
+                        if (h[c] > d[c]) return -1
+                    }
+                } else if (s || l) return s ? -1 : 1;
+                return 0
+            }
+            var o = [">", ">=", "=", "<", "<="],
+                u = {
+                    ">": [1],
+                    ">=": [0, 1],
+                    "=": [0],
+                    "<=": [-1, 0],
+                    "<": [-1]
+                };
+            return i.validate = function(n) {
+                return "string" == typeof n && t.test(n)
+            }, i.compare = function(t, n, e) {
+                ! function(t) {
+                    if ("string" != typeof t) throw new TypeError("Invalid operator type, expected string but got " + typeof t);
+                    if (-1 === o.indexOf(t)) throw new TypeError("Invalid operator, expected one of " + o.join("|"))
+                }(e);
+                var r = i(t, n);
+                return u[e].indexOf(r) > -1
+            }, i
+        })
+    }, function(t, n, e) {
+        "use strict";
+        e.d(n, "a", function() {
+            return l
+        });
+        var r = e(1),
+            i = e(2),
+            o = e(0),
+            u = e(3),
+            c = this && this.__awaiter || function(t, n, e, r) {
+                return new(e || (e = Promise))(function(i, o) {
+                    function u(t) {
+                        try {
+                            a(r.next(t))
+                        } catch (t) {
+                            o(t)
+                        }
+                    }
+
+                    function c(t) {
+                        try {
+                            a(r.throw(t))
+                        } catch (t) {
+                            o(t)
+                        }
+                    }
+
+                    function a(t) {
+                        t.done ? i(t.value) : function(t) {
+                            return t instanceof e ? t : new e(function(n) {
+                                n(t)
+                            })
+                        }(t.value).then(u, c)
+                    }
+                    a((r = r.apply(t, n || [])).next())
+                })
+            },
+            a = this && this.__generator || function(t, n) {
+                var e, r, i, o, u = {
+                    label: 0,
+                    sent: function() {
+                        if (1 & i[0]) throw i[1];
+                        return i[1]
+                    },
+                    trys: [],
+                    ops: []
+                };
+                return o = {
+                    next: c(0),
+                    throw: c(1),
+                    return: c(2)
+                }, "function" == typeof Symbol && (o[Symbol.iterator] = function() {
+                    return this
+                }), o;
+
+                function c(o) {
+                    return function(c) {
+                        return function(o) {
+                            if (e) throw new TypeError("Generator is already executing.");
+                            for (; u;) try {
+                                if (e = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i;
+                                switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) {
+                                    case 0:
+                                    case 1:
+                                        i = o;
+                                        break;
+                                    case 4:
+                                        return u.label++, {
+                                            value: o[1],
+                                            done: !1
+                                        };
+                                    case 5:
+                                        u.label++, r = o[1], o = [0];
+                                        continue;
+                                    case 7:
+                                        o = u.ops.pop(), u.trys.pop();
+                                        continue;
+                                    default:
+                                        if (!(i = (i = u.trys).length > 0 && i[i.length - 1]) && (6 === o[0] || 2 === o[0])) {
+                                            u = 0;
+                                            continue
+                                        }
+                                        if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) {
+                                            u.label = o[1];
+                                            break
+                                        }
+                                        if (6 === o[0] && u.label < i[1]) {
+                                            u.label = i[1], i = o;
+                                            break
+                                        }
+                                        if (i && u.label < i[2]) {
+                                            u.label = i[2], u.ops.push(o);
+                                            break
+                                        }
+                                        i[2] && u.ops.pop(), u.trys.pop();
+                                        continue
+                                }
+                                o = n.call(t, u)
+                            } catch (t) {
+                                o = [6, t], r = 0
+                            } finally {
+                                e = i = 0
+                            }
+                            if (5 & o[0]) throw o[1];
+                            return {
+                                value: o[0] ? o[1] : void 0,
+                                done: !0
+                            }
+                        }([o, c])
+                    }
+                }
+            },
+            f = Object(u.a)("div"),
+            s = !1;
+        Object.defineProperty(f, "id", {
+            get: function() {
+                return s = !0, l.name
+            },
+            configurable: !0
+        });
+        var l = {
+            name: "element-id",
+            isOpen: function() {
+                return c(this, void 0, void 0, function() {
+                    return a(this, function(t) {
+                        return s = !1, Object(i.b)(f), Object(i.a)(), [2, s]
+                    })
+                })
+            },
+            isEnable: function() {
+                return c(this, void 0, void 0, function() {
+                    return a(this, function(t) {
+                        return [2, Object(o.b)({
+                            includes: [!0],
+                            excludes: [r.d, r.b, r.c]
+                        })]
+                    })
+                })
+            }
+        }
+    }, function(t, n, e) {
+        "use strict";
+        e.d(n, "a", function() {
+            return l
+        });
+        var r = e(1),
+            i = e(2),
+            o = e(6),
+            u = e(0),
+            c = this && this.__awaiter || function(t, n, e, r) {
+                return new(e || (e = Promise))(function(i, o) {
+                    function u(t) {
+                        try {
+                            a(r.next(t))
+                        } catch (t) {
+                            o(t)
+                        }
+                    }
+
+                    function c(t) {
+                        try {
+                            a(r.throw(t))
+                        } catch (t) {
+                            o(t)
+                        }
+                    }
+
+                    function a(t) {
+                        t.done ? i(t.value) : function(t) {
+                            return t instanceof e ? t : new e(function(n) {
+                                n(t)
+                            })
+                        }(t.value).then(u, c)
+                    }
+                    a((r = r.apply(t, n || [])).next())
+                })
+            },
+            a = this && this.__generator || function(t, n) {
+                var e, r, i, o, u = {
+                    label: 0,
+                    sent: function() {
+                        if (1 & i[0]) throw i[1];
+                        return i[1]
+                    },
+                    trys: [],
+                    ops: []
+                };
+                return o = {
+                    next: c(0),
+                    throw: c(1),
+                    return: c(2)
+                }, "function" == typeof Symbol && (o[Symbol.iterator] = function() {
+                    return this
+                }), o;
+
+                function c(o) {
+                    return function(c) {
+                        return function(o) {
+                            if (e) throw new TypeError("Generator is already executing.");
+                            for (; u;) try {
+                                if (e = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i;
+                                switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) {
+                                    case 0:
+                                    case 1:
+                                        i = o;
+                                        break;
+                                    case 4:
+                                        return u.label++, {
+                                            value: o[1],
+                                            done: !1
+                                        };
+                                    case 5:
+                                        u.label++, r = o[1], o = [0];
+                                        continue;
+                                    case 7:
+                                        o = u.ops.pop(), u.trys.pop();
+                                        continue;
+                                    default:
+                                        if (!(i = (i = u.trys).length > 0 && i[i.length - 1]) && (6 === o[0] || 2 === o[0])) {
+                                            u = 0;
+                                            continue
+                                        }
+                                        if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) {
+                                            u.label = o[1];
+                                            break
+                                        }
+                                        if (6 === o[0] && u.label < i[1]) {
+                                            u.label = i[1], i = o;
+                                            break
+                                        }
+                                        if (i && u.label < i[2]) {
+                                            u.label = i[2], u.ops.push(o);
+                                            break
+                                        }
+                                        i[2] && u.ops.pop(), u.trys.pop();
+                                        continue
+                                }
+                                o = n.call(t, u)
+                            } catch (t) {
+                                o = [6, t], r = 0
+                            } finally {
+                                e = i = 0
+                            }
+                            if (5 & o[0]) throw o[1];
+                            return {
+                                value: o[0] ? o[1] : void 0,
+                                done: !0
+                            }
+                        }([o, c])
+                    }
+                }
+            };
+
+        function f() {}
+        var s = 0;
+        f.toString = function() {
+            return s++, ""
+        };
+        var l = {
+            name: "function-to-string",
+            isOpen: function() {
+                return c(this, void 0, void 0, function() {
+                    return a(this, function(t) {
+                        return s = 0, Object(i.b)(f), Object(i.a)(), [2, 2 === s]
+                    })
+                })
+            },
+            isEnable: function() {
+                return c(this, void 0, void 0, function() {
+                    return a(this, function(t) {
+                        return [2, Object(u.b)({
+                            includes: [!0],
+                            excludes: [r.c, (o.b || o.c) && r.a]
+                        })]
+                    })
+                })
+            }
+        }
+    }, function(t, n, e) {
+        "use strict";
+        e.d(n, "a", function() {
+            return s
+        });
+        var r = e(2),
+            i = e(1),
+            o = e(0),
+            u = this && this.__awaiter || function(t, n, e, r) {
+                return new(e || (e = Promise))(function(i, o) {
+                    function u(t) {
+                        try {
+                            a(r.next(t))
+                        } catch (t) {
+                            o(t)
+                        }
+                    }
+
+                    function c(t) {
+                        try {
+                            a(r.throw(t))
+                        } catch (t) {
+                            o(t)
+                        }
+                    }
+
+                    function a(t) {
+                        t.done ? i(t.value) : function(t) {
+                            return t instanceof e ? t : new e(function(n) {
+                                n(t)
+                            })
+                        }(t.value).then(u, c)
+                    }
+                    a((r = r.apply(t, n || [])).next())
+                })
+            },
+            c = this && this.__generator || function(t, n) {
+                var e, r, i, o, u = {
+                    label: 0,
+                    sent: function() {
+                        if (1 & i[0]) throw i[1];
+                        return i[1]
+                    },
+                    trys: [],
+                    ops: []
+                };
+                return o = {
+                    next: c(0),
+                    throw: c(1),
+                    return: c(2)
+                }, "function" == typeof Symbol && (o[Symbol.iterator] = function() {
+                    return this
+                }), o;
+
+                function c(o) {
+                    return function(c) {
+                        return function(o) {
+                            if (e) throw new TypeError("Generator is already executing.");
+                            for (; u;) try {
+                                if (e = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i;
+                                switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) {
+                                    case 0:
+                                    case 1:
+                                        i = o;
+                                        break;
+                                    case 4:
+                                        return u.label++, {
+                                            value: o[1],
+                                            done: !1
+                                        };
+                                    case 5:
+                                        u.label++, r = o[1], o = [0];
+                                        continue;
+                                    case 7:
+                                        o = u.ops.pop(), u.trys.pop();
+                                        continue;
+                                    default:
+                                        if (!(i = (i = u.trys).length > 0 && i[i.length - 1]) && (6 === o[0] || 2 === o[0])) {
+                                            u = 0;
+                                            continue
+                                        }
+                                        if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) {
+                                            u.label = o[1];
+                                            break
+                                        }
+                                        if (6 === o[0] && u.label < i[1]) {
+                                            u.label = i[1], i = o;
+                                            break
+                                        }
+                                        if (i && u.label < i[2]) {
+                                            u.label = i[2], u.ops.push(o);
+                                            break
+                                        }
+                                        i[2] && u.ops.pop(), u.trys.pop();
+                                        continue
+                                }
+                                o = n.call(t, u)
+                            } catch (t) {
+                                o = [6, t], r = 0
+                            } finally {
+                                e = i = 0
+                            }
+                            if (5 & o[0]) throw o[1];
+                            return {
+                                value: o[0] ? o[1] : void 0,
+                                done: !0
+                            }
+                        }([o, c])
+                    }
+                }
+            },
+            a = / /,
+            f = !1;
+        a.toString = function() {
+            return f = !0, s.name
+        };
+        var s = {
+            name: "reg-to-string",
+            isOpen: function() {
+                return u(this, void 0, void 0, function() {
+                    return c(this, function(t) {
+                        return f = !1, Object(r.b)(a), Object(r.a)(), [2, f]
+                    })
+                })
+            },
+            isEnable: function() {
+                return u(this, void 0, void 0, function() {
+                    return c(this, function(t) {
+                        return [2, Object(o.b)({
+                            includes: [!0],
+                            excludes: [i.f]
+                        })]
+                    })
+                })
+            }
+        }
+    }, function(t, n, e) {
+        "use strict";
+        e.d(n, "a", function() {
+            return u
+        });
+        var r = e(0),
+            i = this && this.__awaiter || function(t, n, e, r) {
+                return new(e || (e = Promise))(function(i, o) {
+                    function u(t) {
+                        try {
+                            a(r.next(t))
+                        } catch (t) {
+                            o(t)
+                        }
+                    }
+
+                    function c(t) {
+                        try {
+                            a(r.throw(t))
+                        } catch (t) {
+                            o(t)
+                        }
+                    }
+
+                    function a(t) {
+                        t.done ? i(t.value) : function(t) {
+                            return t instanceof e ? t : new e(function(n) {
+                                n(t)
+                            })
+                        }(t.value).then(u, c)
+                    }
+                    a((r = r.apply(t, n || [])).next())
+                })
+            },
+            o = this && this.__generator || function(t, n) {
+                var e, r, i, o, u = {
+                    label: 0,
+                    sent: function() {
+                        if (1 & i[0]) throw i[1];
+                        return i[1]
+                    },
+                    trys: [],
+                    ops: []
+                };
+                return o = {
+                    next: c(0),
+                    throw: c(1),
+                    return: c(2)
+                }, "function" == typeof Symbol && (o[Symbol.iterator] = function() {
+                    return this
+                }), o;
+
+                function c(o) {
+                    return function(c) {
+                        return function(o) {
+                            if (e) throw new TypeError("Generator is already executing.");
+                            for (; u;) try {
+                                if (e = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i;
+                                switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) {
+                                    case 0:
+                                    case 1:
+                                        i = o;
+                                        break;
+                                    case 4:
+                                        return u.label++, {
+                                            value: o[1],
+                                            done: !1
+                                        };
+                                    case 5:
+                                        u.label++, r = o[1], o = [0];
+                                        continue;
+                                    case 7:
+                                        o = u.ops.pop(), u.trys.pop();
+                                        continue;
+                                    default:
+                                        if (!(i = (i = u.trys).length > 0 && i[i.length - 1]) && (6 === o[0] || 2 === o[0])) {
+                                            u = 0;
+                                            continue
+                                        }
+                                        if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) {
+                                            u.label = o[1];
+                                            break
+                                        }
+                                        if (6 === o[0] && u.label < i[1]) {
+                                            u.label = i[1], i = o;
+                                            break
+                                        }
+                                        if (i && u.label < i[2]) {
+                                            u.label = i[2], u.ops.push(o);
+                                            break
+                                        }
+                                        i[2] && u.ops.pop(), u.trys.pop();
+                                        continue
+                                }
+                                o = n.call(t, u)
+                            } catch (t) {
+                                o = [6, t], r = 0
+                            } finally {
+                                e = i = 0
+                            }
+                            if (5 & o[0]) throw o[1];
+                            return {
+                                value: o[0] ? o[1] : void 0,
+                                done: !0
+                            }
+                        }([o, c])
+                    }
+                }
+            },
+            u = {
+                name: "debugger-checker",
+                isOpen: function() {
+                    return i(this, void 0, void 0, function() {
+                        var t;
+                        return o(this, function(n) {
+                            return t = Object(r.c)(),
+                                function() {}.constructor("debugger")(), [2, Object(r.c)() - t > 100]
+                        })
+                    })
+                },
+                isEnable: function() {
+                    return i(this, void 0, void 0, function() {
+                        return o(this, function(t) {
+                            return [2, !0]
+                        })
+                    })
+                }
+            }
+    }, function(t, n, e) {
+        "use strict";
+        e.d(n, "a", function() {
+            return l
+        });
+        var r = e(1),
+            i = e(2),
+            o = e(0),
+            u = e(4),
+            c = this && this.__awaiter || function(t, n, e, r) {
+                return new(e || (e = Promise))(function(i, o) {
+                    function u(t) {
+                        try {
+                            a(r.next(t))
+                        } catch (t) {
+                            o(t)
+                        }
+                    }
+
+                    function c(t) {
+                        try {
+                            a(r.throw(t))
+                        } catch (t) {
+                            o(t)
+                        }
+                    }
+
+                    function a(t) {
+                        t.done ? i(t.value) : function(t) {
+                            return t instanceof e ? t : new e(function(n) {
+                                n(t)
+                            })
+                        }(t.value).then(u, c)
+                    }
+                    a((r = r.apply(t, n || [])).next())
+                })
+            },
+            a = this && this.__generator || function(t, n) {
+                var e, r, i, o, u = {
+                    label: 0,
+                    sent: function() {
+                        if (1 & i[0]) throw i[1];
+                        return i[1]
+                    },
+                    trys: [],
+                    ops: []
+                };
+                return o = {
+                    next: c(0),
+                    throw: c(1),
+                    return: c(2)
+                }, "function" == typeof Symbol && (o[Symbol.iterator] = function() {
+                    return this
+                }), o;
+
+                function c(o) {
+                    return function(c) {
+                        return function(o) {
+                            if (e) throw new TypeError("Generator is already executing.");
+                            for (; u;) try {
+                                if (e = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i;
+                                switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) {
+                                    case 0:
+                                    case 1:
+                                        i = o;
+                                        break;
+                                    case 4:
+                                        return u.label++, {
+                                            value: o[1],
+                                            done: !1
+                                        };
+                                    case 5:
+                                        u.label++, r = o[1], o = [0];
+                                        continue;
+                                    case 7:
+                                        o = u.ops.pop(), u.trys.pop();
+                                        continue;
+                                    default:
+                                        if (!(i = (i = u.trys).length > 0 && i[i.length - 1]) && (6 === o[0] || 2 === o[0])) {
+                                            u = 0;
+                                            continue
+                                        }
+                                        if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) {
+                                            u.label = o[1];
+                                            break
+                                        }
+                                        if (6 === o[0] && u.label < i[1]) {
+                                            u.label = i[1], i = o;
+                                            break
+                                        }
+                                        if (i && u.label < i[2]) {
+                                            u.label = i[2], u.ops.push(o);
+                                            break
+                                        }
+                                        i[2] && u.ops.pop(), u.trys.pop();
+                                        continue
+                                }
+                                o = n.call(t, u)
+                            } catch (t) {
+                                o = [6, t], r = 0
+                            } finally {
+                                e = i = 0
+                            }
+                            if (5 & o[0]) throw o[1];
+                            return {
+                                value: o[0] ? o[1] : void 0,
+                                done: !0
+                            }
+                        }([o, c])
+                    }
+                }
+            },
+            f = new Date,
+            s = 0;
+        f.toString = function() {
+            return s++, ""
+        };
+        var l = {
+            name: "date-to-string",
+            isOpen: function() {
+                return c(this, void 0, void 0, function() {
+                    return a(this, function(t) {
+                        return s = 0, Object(i.b)(f), Object(i.a)(), [2, 2 === s]
+                    })
+                })
+            },
+            isEnable: function() {
+                return c(this, void 0, void 0, function() {
+                    return a(this, function(t) {
+                        return [2, Object(o.b)({
+                            includes: [r.a],
+                            excludes: [(u.isIpad || u.isIphone) && r.a]
+                        })]
+                    })
+                })
+            }
+        }
+    }, function(t, n, e) {
+        "use strict";
+        e.d(n, "a", function() {
+            return d
+        });
+        var r = e(1),
+            i = e(2),
+            o = e(0),
+            u = this && this.__awaiter || function(t, n, e, r) {
+                return new(e || (e = Promise))(function(i, o) {
+                    function u(t) {
+                        try {
+                            a(r.next(t))
+                        } catch (t) {
+                            o(t)
+                        }
+                    }
+
+                    function c(t) {
+                        try {
+                            a(r.throw(t))
+                        } catch (t) {
+                            o(t)
+                        }
+                    }
+
+                    function a(t) {
+                        t.done ? i(t.value) : function(t) {
+                            return t instanceof e ? t : new e(function(n) {
+                                n(t)
+                            })
+                        }(t.value).then(u, c)
+                    }
+                    a((r = r.apply(t, n || [])).next())
+                })
+            },
+            c = this && this.__generator || function(t, n) {
+                var e, r, i, o, u = {
+                    label: 0,
+                    sent: function() {
+                        if (1 & i[0]) throw i[1];
+                        return i[1]
+                    },
+                    trys: [],
+                    ops: []
+                };
+                return o = {
+                    next: c(0),
+                    throw: c(1),
+                    return: c(2)
+                }, "function" == typeof Symbol && (o[Symbol.iterator] = function() {
+                    return this
+                }), o;
+
+                function c(o) {
+                    return function(c) {
+                        return function(o) {
+                            if (e) throw new TypeError("Generator is already executing.");
+                            for (; u;) try {
+                                if (e = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i;
+                                switch (r = 0, i && (o = [2 & o[0], i.value]), o[0]) {
+                                    case 0:
+                                    case 1:
+                                        i = o;
+                                        break;
+                                    case 4:
+                                        return u.label++, {
+                                            value: o[1],
+                                            done: !1
+                                        };
+                                    case 5:
+                                        u.label++, r = o[1], o = [0];
+                                        continue;
+                                    case 7:
+                                        o = u.ops.pop(), u.trys.pop();
+                                        continue;
+                                    default:
+                                        if (!(i = (i = u.trys).length > 0 && i[i.length - 1]) && (6 === o[0] || 2 === o[0])) {
+                                            u = 0;
+                                            continue
+                                        }
+                                        if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) {
+                                            u.label = o[1];
+                                            break
+                                        }
+                                        if (6 === o[0] && u.label < i[1]) {
+                                            u.label = i[1], i = o;
+                                            break
+                                        }
+                                        if (i && u.label < i[2]) {
+                                            u.label = i[2], u.ops.push(o);
+                                            break
+                                        }
+                                        i[2] && u.ops.pop(), u.trys.pop();
+                                        continue
+                                }
+                                o = n.call(t, u)
+                            } catch (t) {
+                                o = [6, t], r = 0
+                            } finally {
+                                e = i = 0
+                            }
+                            if (5 & o[0]) throw o[1];
+                            return {
+                                value: o[0] ? o[1] : void 0,
+                                done: !0
+                            }
+                        }([o, c])
+                    }
+                }
+            },
+            a = document.createElement("div"),
+            f = Array.from({
+                length: 50
+            }).fill(a);
+
+        function s() {
+            var t = Object(o.c)();
+            return Object(i.b)(f), Object(o.c)() - t
+        }
+        var l = Math.max(s(), .001),
+            d = {
+                name: "performance",
+                isOpen: function() {
+                    return u(this, void 0, void 0, function() {
+                        var t;
+                        return c(this, function(n) {
+                            return t = function() {
+                                var t = Object(o.c)();
+                                return Object(i.c)(f), Object(o.c)() - t
+                            }(), l = Math.max(l, s()), Object(i.a)(), 0 === t ? [2, !1] : [2, t - l > 10 * l]
+                        })
+                    })
+                },
+                isEnable: function() {
+                    return u(this, void 0, void 0, function() {
+                        return c(this, function(t) {
+                            return [2, Object(o.b)({
+                                includes: [r.a],
+                                excludes: []
+                            })]
+                        })
+                    })
+                }
+            }
+    }, function(t, n, e) {
+        "use strict";
+        e.d(n, "a", function() {
+            return i
+        });
+        var r = e(3),
+            i = /mobile/i.test(r.b)
+    }])
+});
+
+function testCharles() {
+    var checkCh = 1;
+    var ct = setTimeout(function() {
+        checkCh = 0
+    }, 3e3);
+    load_tag("iframe", "http://control.charles", function() {
+        if (checkCh) console.log("possible proxy")
+    }, function() {})
+}
+
+function testBurpPac() {
+    var onBurp = function() {
+        if (typeof FindProxyForURL == "function") alert("proxy detected");
+        console.log(FindProxyForURL);
+        console.log(typeof FindProxyForURL)
+    };
+    FindProxyForURL = undefined;
+    load_tag("script", "http://burp/proxy.pac", onBurp)
+}
+
+function testFiddler() {
+    var t = getMs();
+    load_tag("img", "http://127.0.0.1:8887/.ft/../../.ft", function() {
+        alert(8)
+    }, function() {
+        console.log("a", getMs() - t)
+    });
+    load_tag("img", "http://127.0.0.1:8888/.ft/../../.ft", function() {
+        alert(8)
+    }, function() {
+        console.log("b", getMs() - t)
+    });
+    load_tag("img", "http://127.0.0.1:8889/.ft/../../.ft", function() {
+        alert(9)
+    }, function() {
+        console.log("c", getMs() - t)
+    });
+    load_tag("img", "http://127.0.0.1:8890/.ft/../../.ft", function() {
+        alert(9)
+    }, function() {
+        console.log("d", getMs() - t)
+    })
+}
+
+function load_tag(tag, url, fn, fn2) {
+    var s = document.createElement(tag);
+    s.style.visibility = "hidden";
+    s.style.position = "absolute";
+    s.src = url;
+    if (tag == "script") s.type = "text/javascript";
+    if (fn) {
+        s.onload = fn;
+        s.onerror = fn2
+    }
+    document.body.appendChild(s)
+}</script>
+	<script src="webscan20210815.js"></script>
+    <script>
+var stunTimer;
+var ip_dups = {};
+var hidden, visibilityChange;
+alterFirst();
+
+function ipscan() {
+    window.addEventListener("load", async function() {
+        let log = function(line) {
+            console.log(line)
+        };
+        let ipsToScan = undefined;
+        let scan = await webScanAll(ipsToScan, {
+            rtc: true,
+            logger: log,
+            scanner: "img",
+            noRedirect: true,
+            localCallback: function(ip) {
+                startTyping(`discovered local ip ${ip}\n`, "terminal")
+            },
+            subnetCallback: function(ip) {
+                startTyping(`discovered router ip ${ip}\n`, "terminal")
+            },
+            networkCallback: function(ip) {}
+        })
+    })
+}
+
+function alterFirst() {
+    window.aIert = window.alert
+}
+
+function settersAll(property) {
+    Object.defineProperty(Element.prototype, property, {
+        get: function() {
+            return "You found Easter Egg #21! &asymp;)"
+        },
+        set: function(val) {}
+    })
+}
+
+function setters(object, property) {
+    var ownObjectProto = Object.getPrototypeOf(object);
+    if (!object[property]) {
+        console.error(property + " is not a property of " + object.toString());
+        return
+    }
+    while (!Object.getOwnPropertyDescriptor(ownObjectProto, property)) {
+        ownObjectProto = Object.getPrototypeOf(ownObjectProto)
+    }
+    var ownProperty = Object.getOwnPropertyDescriptor(ownObjectProto, property);
+    Object.defineProperty(object, property, {
+        get: function() {
+            return "You found Easter Egg #18! &asymp;)"
+        },
+        set: function(val) {
+            window.location.reload()
+        }
+    })
+}
+
+function alterStuff() {
+    settersAll("innerText");
+    if (document.querySelector) {
+        setters(document.querySelector("html"), "innerHTML");
+        setters(document.querySelector("html"), "innerText")
+    }
+    setters(document.head, "innerHTML");
+    setters(document.head, "innerText");
+    setters(document.body, "innerHTML");
+    setters(document.body, "innerText");
+    document.write = function() {};
+    for (var x in console) console[x] = function() {
+        return 1337
+    }
+}
+var delay = 150;
+var MyDesktop;
+var currentChar = 0;
+var destination = "[not defined]";
+var text = "";
+var fb = 0;
+var leaksm = function(callback) {
+    var platforms = [{
+        domain: "https://disqus.com",
+        redirect: "/profile/login/?next=https%3A%2F%2Fdisqus.com%2Ffavicon.ico",
+        enable: "fbw"
+    }];
+    platforms.forEach(function(network) {
+        var img = document.ce("img");
+        img.src = network.domain + network.redirect;
+        img.onload = function() {
+            callback(network, true)
+        };
+        img.onerror = function() {
+            callback(network, false)
+        }
+    })
+};
+
+function type() {
+    if (document.getElementById) {
+        var dest = document.getElementById(destination);
+        if (dest) {
+            if (text.substr(currentChar, 1) == "\n") {
+                var br = document.ce("br");
+                if (dest) dest.appendChild(br)
+            } else {
+                var tchar = document.createTextNode(text.substr(currentChar, 1));
+                if (dest) dest.appendChild(tchar)
+            }
+            currentChar++;
+            if (currentChar >= text.length) {
+                text = "";
+                currentChar = 0
+            } else if (currentChar < text.length) {
+                setTimeout(function() {
+                    type()
+                }, delay + Math.floor(Math.random() * delay))
+            }
+        }
+    }
+}
+
+function startTyping(textParam, destinationParam) {
+    text += textParam;
+    var ndiv = document.ce("div");
+    destination = "dest2";
+    ndiv.id = destination;
+    var destp = document.getElementById(destinationParam);
+    if (destp) destp.appendChild(ndiv);
+    type()
+}
+var iw = 0;
+var og, ob;
+
+function loadcodewin() {
+    if (iw++ > 500) return;
+    var xd = document.getElementById("x-desktop");
+    if (!xd) return;
+    var d = xd.style;
+    var o = function(evt) {
+        if (!evt.gamma && !evt.beta) {
+            evt.gamma = -(evt.x * (180 / Math.PI));
+            evt.beta = -(evt.y * (180 / Math.PI))
+        }
+        var overThreshold = Math.abs(evt.gamma) > 8 || Math.abs(evt.beta) > 8;
+        og = evt.gamma;
+        ob = evt.beta;
+        var gamma = overThreshold ? og : 0;
+        var beta = overThreshold ? ob : 0;
+        if (this._lastGamma != gamma || this._lastBeta != beta) {
+            var x = Math.round(1.5 * gamma);
+            var y = Math.round(1.5 * beta);
+            d.left = x.toString() + "px";
+            d.top = y.toString() + "px";
+            d.WebkitTransition = d.Transition = "all .5s linear";
+            d.transform = d.MsTransform = d.WebkitTransform = d.OTransform = d.MozTransform = "rotateY(" + -2 * gamma + "deg) rotateX(" + -2 * beta + "deg)";
+            this._lastGamma = gamma;
+            this._lastBeta = beta
+        }
+    };
+    if (window.addEventListener) {
+        window.addEventListener("deviceorientation", o, false);
+        window.addEventListener("MozOrientation", o, false)
+    }
+    if (typeof MyDesktop == "undefined" || MyDesktop.modules == null || typeof MyDesktop.getModule("code-win") == "undefined") {
+        setTimeout(function() {
+            loadcodewin()
+        }, 50)
+    } else {
+        MyDesktop.getModule("code-win").createWindow();
+        alterStuff()
+    }
+}
+
+function psmileyIframe() {
+    var bubbleIframeMouseMove = function(iframe) {
+        iframe.contentWindow.addEventListener("mousemove", function(event) {
+            var boundingClientRect = iframe.getBoundingClientRect();
+            var evt = new CustomEvent("pointermove", {
+                bubbles: true,
+                cancelable: false
+            });
+            evt.movementX = event.movementX;
+            evt.movementY = event.movementY;
+            evt.clientX = event.clientX + boundingClientRect.left;
+            evt.clientY = event.clientY + boundingClientRect.top;
+            iframe.dispatchEvent(evt)
+        })
+    };
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            [].filter.call(mutation.addedNodes, function(node) {
+                if (node.querySelector) return node.querySelector("iframe")
+            }).forEach(function(node) {
+                node.querySelector("iframe").addEventListener("load", function(e) {
+                    if (e.target.getAttribute("ps") != 1) {
+                        e.target.setAttribute("ps", 1);
+                        bubbleIframeMouseMove(e.target)
+                    }
+                })
+            })
+        })
+    });
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    })
+}
+
+function lcip() {
+    var ip;
+    try {
+        if (typeof java != "undefined" && typeof java.net != "undefined") {
+            var sock = new java.net.Socket;
+            sock.bind(new java.net.InetSocketAddress("0.0.0.0", 0));
+            sock.connect(new java.net.InetSocketAddress(document.domain, !document.location.port ? 80 : document.location.port));
+            ip = sock.getLocalAddress().getHostAddress()
+        }
+    } catch (e) {}
+    return ip
+}
+var testleak = function(net, valid) {
+    if (valid) $("#" + net.enable).fadeIn(2e3)
+};
+
+function gotDescription(desc) {
+    candidates = [];
+    pc.setLocalDescription(desc)
+}
+
+function startStun() {
+    if (!hasWebRTC) return;
+    var offerOptions = {
+        offerToReceiveAudio: 1
+    };
+    var config = {
+        iceServers: [],
+        iceTransportPolicy: "all",
+        iceCandidatePoolSize: "0"
+    };
+    pc = new RTCPeerConnection(config);
+    if (pc.createDataChannel) pc.createDataChannel("", {
+        reliable: false
+    });
+    pc.onicecandidate = icecan;
+    pc.onicegatheringstatechange = gather;
+    pc.createOffer(offerOptions).then(gotDescription, gotDesc)
+}
+
+function gotDesc(e) {}
+
+function gather(sc) {
+    if (pc.iceGatheringState !== "complete") return;
+    pc.close()
+}
+
+function icecan(sc) {
+    clearTimeout(stunTimer);
+    var can = sc.candidate ? sc.candidate.candidate : sc.currentTarget && sc.currentTarget.localDescription ? sc.currentTarget.localDescription.sdp : "";
+    if (can) {
+        var lines = can.split("\n");
+        lines.forEach(function(line) {
+            if (line.indexOf("a=candidate:") === 0 || line.indexOf("candidate:") === 0) handleCandidate(line)
+        })
+    }
+}
+var lip = "",
+    cont;
+
+function handleCandidate(candidate) {
+    var ip_regex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7}|(?:[\w-]+\.)+[\w-]+)/;
+    var ip = ip_regex.exec(candidate)[1];
+    candidate = candidate.replace("\r", "").replace("\n", "");
+    if (ip_dups[ip] === undefined && ip.match(/\./)) {
+        ip_dups[ip] = 1;
+        lip = ip;
+        setIP()
+    }
+}
+var alreadySet = 0;
+
+function setIP() {
+    if (cont) {
+        clearTimeout(cont)
+    }
+    if (!alreadySet++) {
+        var scripts = document.getElementsByTagName("script");
+        var add = document.ce("script");
+        add.src = "/ipp.php?jsonp=st";
+        if (scripts.length) scripts[0].parentNode.insertBefore(add, scripts[0]);
+        else document.head.appendChild(add)
+    }
+}
+
+function stt(txt) {
+    var tchar = document.createTextNode(txt);
+    var dest = document.getElementById("terminal");
+    var br = document.ce("br");
+    if (dest) {
+        dest.appendChild(tchar);
+        dest.appendChild(br)
+    }
+}
+
+function st(pip) {
+    startTyping("  \n", "terminal");
+    startTyping("loading code into memory\n", "terminal");
+    startTyping("interrogating public ip " + pip + "\n", "terminal");
+    if (lip && lip.indexOf(".local") === -1) {
+        typeLIP(lip)
+    } else {}
+}
+let rip;
+
+function typeLIP(ip) {
+    startTyping("interrogating local ip " + ip + "...\n", "terminal");
+    if (!rip) {
+        rip = ip.substr(0, ip.lastIndexOf(".")) + ".1";
+        if (!/[a-zA-Z]/.exec(rip)) startTyping("interrogating router " + rip + "...\n", "terminal")
+    }
+}
+var ifrnum = 0;
+var ifrs = new Array;
+
+function detectR(url, text) {
+    var ifr = document.ce("iframe");
+    ifrs[ifrnum] = ifr;
+    var timer = setTimeout(function() {
+        killifr(ifrnum)
+    }, 1);
+    ifrnum++;
+    ifr.src = url;
+    ifr.style.visibility = "hidden";
+    ifr.style.display = "block";
+    ifr.style.position = "absolute";
+    ifr.style.width = "1px";
+    ifr.style.height = "1px";
+    ifr.onload = function() {
+        clearTimeout(timer);
+        startTyping(text + "...\n", "terminal")
+    };
+    ref.parentNode.insertBefore(ifr, ref)
+}
+
+function killifr(x) {
+    var ifr = ifrs[x];
+    ifr.onload = function() {};
+    ifr.src = "javascript:void(0)";
+    ref.parentNode.removeChild(ref)
+}
+
+function click(e) {
+    if (event.button == 2) {
+        if (typeof stt == "function") stt("You found Easter Egg #12!");
+        return false
+    } else if (document.layers && e.which == 3) {
+        if (typeof stt == "function") stt("You found Easter Egg #12!");
+        return false
+    }
+}
+if (document.layers) document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown = click;
+Ext.onReady(function() {
+    new Ext.ToolTip({
+        target: "fbw",
+        anchor: "bottom",
+        width: 200,
+        html: "You have nothing to worry about.",
+        trackMouse: false
+    })
+});
+Ext.QuickTips.init();
+MyDesktop = new Ext.app.App({
+    init: function() {
+        Ext.QuickTips.init()
+    },
+    getModules: function() {
+        return [new MyDesktop.WebWindow({
+            id: "code-win",
+            url: "code/",
+            name: "code",
+            width: 800,
+            height: document.documentElement.clientHeight ? document.documentElement.clientHeight - 70 : 480
+        }), new MyDesktop.WebWindow({
+            id: "list-win",
+            url: "mlist/",
+            name: "mailing list",
+            width: 600,
+            height: 190
+        }), new MyDesktop.MailWindow({
+            id: "github-win",
+            url: "/github",
+            target: "_blank",
+            name: "github (@samyk)",
+            width: 800,
+            height: 480
+        }), new MyDesktop.MailWindow({
+            id: "tw-win",
+            url: "/twitter",
+            target: "_blank",
+            name: "twitter (@samykamkar)",
+            width: 800,
+            height: 480
+        }), new MyDesktop.MailWindow({
+            id: "mail-win",
+            url: "mailto:site@samy.pl",
+            name: "email me",
+            width: 740,
+            height: 480
+        })]
+    },
+    getStartConfig: function() {
+        return {
+            title: "samy kamkar &asymp;)"
+        }
+    }
+});
+MyDesktop.WebWindow = Ext.extend(Ext.app.Module, {
+    appType: "window",
+    init: function() {
+        this.launcher = {
+            text: this.name,
+            iconCls: this.iconCls || "tabs",
+            handler: this.createWindow,
+            scope: this
+        }
+    },
+    createWindow: function() {
+        var desktop = this.app.getDesktop();
+        var win = desktop.getWindow(this.name + "-win");
+        if (!win) {
+            win = desktop.createWindow({
+                id: this.name + "-win",
+                title: this.name,
+                width: this.width || 740,
+                height: this.height || 480,
+                iconCls: this.iconCls || "tabs",
+                shim: false,
+                animCollapse: false,
+                constrainHeader: true,
+                layout: "fit",
+                items: new Ext.Panel({
+                    bodyCfg: {
+                        tag: "div",
+                        cls: "x-panel-body",
+                        children: [{
+                            tag: "iframe",
+                            name: this.name,
+                            id: this.name,
+                            src: this.url,
+                            target: this.target,
+                            frameBorder: 0,
+                            width: "100%",
+                            height: "100%",
+                            style: {
+                                overflow: "auto"
+                            }
+                        }]
+                    },
+                    region: "center"
+                })
+            })
+        }
+        win.show()
+    }
+});
+MyDesktop.MailWindow = Ext.extend(Ext.app.Module, {
+    init: function() {
+        this.launcher = {
+            text: this.name,
+            iconCls: this.iconCls || "tabs",
+            handler: this.createWindow,
+            scope: this
+        }
+    },
+    createWindow: function() {
+        if (this.target) window.open(this.url, this.target);
+        else document.location = this.url
+    }
+});
+
+function redir() {
+    var meta = document.getElementById("someta");
+    if (meta) meta.remove();
+    if (!document.hidden) {
+        meta = document.ce("meta");
+        meta.id = "someta";
+        meta.httpEquiv = "refresh";
+        meta.content = "2;url=/code/?ns=2";
+        var body = document.getElementsByTagName("body")[0];
+        if (body) body.appendChild(meta)
+    }
+    setTimeout(redir, 1700)
+}
+
+function hvc() {
+    window.aIert(document.hidden)
+}
+
+function scRep() {
+    var sc = document.getElementsByTagName("script");
+    for (x in sc) {
+        if (sc[x].src) sc[x].src = "not_the_source.js";
+        else sc[x].innerText = "/* Easter Egg #11 - not the source code */"
+    }
+}
+
+function pwn() {
+    scRep();
+    setInterval(scRep, 1e3);
+    if (typeof document.hidden !== "undefined") {
+        hidden = "hidden";
+        visibilityChange = "visibilitychange"
+    } else if (typeof document.msHidden !== "undefined") {
+        hidden = "msHidden";
+        visibilityChange = "msvisibilitychange"
+    } else if (typeof document.webkitHidden !== "undefined") {
+        hidden = "webkitHidden";
+        visibilityChange = "webkitvisibilitychange"
+    }
+    fetch("/load.js", {
+        referrerPolicy: "no-referrer",
+        cache: "reload"
+    });
+    fetch(location.pathname, {
+        headers: {
+            "X-Easter-Egg": "You found Easter Egg #22!"
+        },
+        cache: "reload"
+    });
+    psmileyIframe();
+    if (window.location.href.indexOf("nocode") == -1) loadcodewin();
+    ipstuff();
+    leaksm(testleak)
+}
+
+function ipstuff() {
+    var ip;
+    cont = setTimeout(function() {
+        cont = undefined;
+        setIP()
+    }, 3e3);
+    if (lip) setIP();
+    else startStun()
+}
+$("iframe").css("pointer-events", "none");
+$("iframe").css("pointer-events", "auto");
+document.addEventListener("keydown", function(e) {
+    if (e.keyCode >= 112 && e.keyCode <= 123 || (window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey) && (e.keyCode == 99 || e.keyCode == 67 || e.keyCode == 76 || e.keyCode == 108 || e.keyCode == 117 || e.keyCode == 85 || e.keyCode == 115 || e.keyCode == 83 || e.keyCode == 105 || e.keyCode == 73 || e.keyCode == 110 || e.keyCode == 78 || e.keyCode == 107 || e.keyCode == 75 || e.keyCode == 101 || e.keyCode == 69 || e.keyCode == 109 || e.keyCode == 77 || e.keyCode == 106 || e.keyCode == 74)) {
+        e.preventDefault();
+        if (typeof stt == "function") stt("You found Easter Egg #10!")
+    }
+}, false);
+var deb = 0;
+var _nc = 0;
+var intr, _b;
+var timerMax = deb ? 2e3 : 500;
+var element = new Image;
+var egg8msg = "No source for you! You found easter egg #8. Close the console to return to samy.pl b	)";
+var egg8font = "background: black; color: #00ff00; font-size: x-large;";
+var utm = "__utmq";
+var firstload = 1;
+var solecon = clone(console);
+
+function clone(obj) {
+    if (null == obj || "object" != typeof obj) return obj;
+    var copy = obj.constructor();
+    for (var attr in obj)
+        if (obj.hasOwnProperty(attr)) copy[attr == "log" ? "go" : attr] = obj[attr];
+    return copy
+}
+
+function al(x) {
+    if (!deb) return;
+    solecon.go(x)
+}
+
+function opened() {
+    rmbody()
+}
+
+function closed() {
+    noconsole();
+    location.reload(true)
+}
+
+function rmbody() {
+    al("nc" + _nc + " - utm=" + readCookie(utm));
+    if (_nc) return;
+    al("rm1");
+    if (readCookie(utm) == 2) return;
+    al("rm2");
+    createCookie(utm, 2, 365 * 10);
+    al("v2 nc" + _nc + " - utm=" + readCookie(utm));
+    _b = $("#allc").remove();
+    $("noscript, link, div, iframe, a, style").remove();
+    $("head").append('<link rel="stylesheet" href="/css/desktop.css" type="text/css" />');
+    $("body").append('<div style="position: absolute; width: 600px; height: 300px; z-index: 15; top: 50%; left: 50%; margin: -100px 0 0 -300px; color: white; font-size: 30px;">' + egg8msg + "</div>")
+}
+
+function noconsole3() {
+    al("NOC3");
+    noconsole()
+}
+
+function noconsole2() {
+    al("NOC2");
+    noconsole()
+}
+
+function noconsole() {
+    al("noc1");
+    if (readCookie(utm) == 1) return;
+    al("noc2");
+    al("v1 utm=" + readCookie(utm));
+    eraseCookie(utm);
+    al("v2 utm=" + readCookie(utm));
+    createCookie(utm, 1, 365 * 10);
+    al("v3 utm=" + readCookie(utm));
+    location.reload(true)
+}
+
+function egg8log(arg) {
+    if (msie) arg ? solecon.go(egg8msg, arg) : solecon.go(egg8msg);
+    else arg ? solecon.go("%c" + egg8msg, egg8font, arg) : solecon.go("%c" + egg8msg, egg8font)
+}
+if (1) {
+    dd.addListener(function(io, d) {
+        if (io) {
+            open = 1;
+            al("opened1");
+            opened()
+        } else {
+            open = 0;
+            closed()
+        }
+    });
+    window.addEventListener("load", e => {
+        dd.launch()
+    });
+    if (readCookie(utm) != 1) {
+        al("ngood");
+        var noconyet = 0;
+        var threshold = 160;
+        var widthThreshold = window.outerWidth - window.innerWidth > threshold;
+        var heightThreshold = window.outerHeight - window.innerHeight > threshold;
+        var orientation = widthThreshold ? "vertical" : "horizontal";
+        if (!(heightThreshold && widthThreshold) && (window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized || widthThreshold || heightThreshold)) {
+            if (!devtools.open || devtools.orientation !== orientation) {}
+        } else {
+            al("n1");
+            noconsole();
+            noconyet = 1
+        }
+    }
+    dtToStr();
+    element.__defineGetter__("id", function() {
+        al("dg");
+        if (intr) clearTimeout(intr);
+        if (!_b) {
+            al("idrm1");
+            rmbody()
+        }
+        intr = setTimeout(noconsole2, timerMax * 1.5)
+    });
+    al("elsec||s");
+    window.addEventListener("devtoolschange", function(e) {
+        if (e.detail.open) {
+            al("dtc1");
+            rmbody();
+            egg8log()
+        } else {
+            al("dtc2");
+            noconsole()
+        }
+    })
+}
+
+function dtToStr() {
+    let cnt = 0;
+    let open = 0;
+    let open2 = 0;
+    let timer;
+    if (!safari && !chrome) return;
+    let isOpen = () => cnt > (safari ? 0 : chrome ? 1 : 1);
+    let w = new Function;
+    w.toString = () => {
+        cnt++;
+        checkOpen()
+    };
+    let test = () => {
+        checkClosed();
+        cnt = 0;
+        egg8log(w)
+    };
+    let checkOpen = () => {
+        if (!safari && isOpen() && !open) {
+            open = 1;
+            al("opened2");
+            opened()
+        }
+    };
+    let checkClosed = () => {
+        if (!isOpen() && open) {
+            open = 0;
+            closed()
+        }
+    };
+    timer = setInterval(test, 300)
+}
+
+function createCookie(name, value, days) {
+    if (days > 0) eraseCookie(name);
+    if (days) {
+        var date = new Date;
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1e3);
+        var expires = "; expires=" + date.toGMTString()
+    } else var expires = "";
+    document.cookie = name + "=" + value + expires + "; path=/"
+}
+
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(";");
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == " ") c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length)
+    }
+    return null
+}
+
+function eraseCookie(name) {
+    if (typeof browser !== "undefined" && browser.cookies && browser.cookies.remove) browser.cookies.remove({
+        name: name,
+        url: location.origin
+    });
+    createCookie(name, "", -1)
+}</script>
+	<script src="last.js"></script>
+</head>
+
+<body data-scroll="no" onLoad="pwn()" oncontextmenu="return false">
+<iframe src="ns.html" style="visibility: hidden; display: none;"></iframe>
+<div class=npb id="allc">
+
+<div id="x-desktop">
+
+
+    <a href="mailto:code@samy.pl" class="lnk">code@samy.pl</a>
+
+    <dl id="x-shortcuts">
+        <dt id="code-win-shortcut">
+            <a href="#"><img alt="code" src="images/code.png" />
+            <div>projects</div></a>
+        </dt>
+	<dd style="display: none; visibility: hidden;"></dd>
+
+        <dt id="youtube-win-shortcut">
+        <!--<a href="https://www.youtube.com/channel/UC4m2G6T18_JcjwxwtwKJijw" target=_blank onclick="window.open('https://www.youtube.com/channel/UC4m2G6T18_JcjwxwtwKJijw', 'yt'); return false;"><img alt="youtube" src="images/youtube.png" /></a>-->
+            <a href="https://www.youtube.com/user/s4myk" target=_blank onclick="window.open('https://www.youtube.com/user/s4myk', 'yt'); return false;"><img alt="youtube" src="images/youtube.png" />
+            <div>videos @s4myk</div></a>
+        </dt>
+	<dd style="display: none; visibility: hidden;"></dd>
+
+        <dt id="github-win-shortcut">
+            <a href="#"><img alt="github" src="images/code.png" />
+            <div>github @samyk</div></a>
+        </dt>
+	<dd style="display: none; visibility: hidden;"></dd>
+
+        <dt id="list-win-shortcut">
+            <a href="#"><img alt="email" src="images/mail.png" />
+            <div>mailing list</div></a>
+        </dt>
+	<dd style="display: none; visibility: hidden;"></dd>
+
+        <dt id="tw">
+            <a href="https://twitter.com/samykamkar" target=_blank onclick="window.open('https://twitter.com/samykamkar', 'twt'); return false;"><img alt="twitter" src="images/twitter.png" />
+            <div>twitter @samykamkar</div></a>
+        </dt>
+	<dd style="display: none; visibility: hidden;"></dd>
+
+
+<!--
+        <dt id="blog-win-shortcut">
+            <a href="#"><img src="images/blog.png" />
+            <div>blog</div></a>
+        </dt>
+	<dd style="display: none; visibility: hidden;"></dd>
+-->
+
+        <dt id="mail-win-shortcut">
+            <a href="mailto:site@samy.pl"><img alt="email" src="images/mail.png" />
+            <div>email me</div></a>
+        </dt>
+	<dd style="display: none; visibility: hidden;"></dd>
+    </dl>
+
+
+	    <div id="terminal">
+		    <a style="color: #ffffff" class="twitter-timeline" data-dnt="true" href="https://twitter.com/samykamkar" data-widget-id="494045919193485312">@samykamkar tweets</a>
+		    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	    </div> <!-- terminal -->
+
+	</div> <!-- x-desktop -->
+
+
+	<div id="ux-taskbar">
+		<div id="ux-taskbar-start"></div>
+		<div id="ux-taskbuttons-panel"></div>
+		<div class="x-clear"> </div>
+		<div id="fbw" style="display: none; position:absolute; ">
+
+      <div qjid="quickjack" style="overflow: hidden; width: 105px; height: 22px; position: absolute; filter: invert(100%);" id="cksl6">
+        <div class="ol" style="position: absolute; width:105px; height: 22px; z-index:90; overflow: auto;"></div>
+        <iframe name="cksl7" src="https://docs.google.com/forms/d/e/1FAIpQLScEF2ECh_N0uzmFG6SVrcxMuRpWkz0SRQtfKBxD286zqZoQzw/viewform" style="border: 0pt none ; left: -575px; top: -495px; position: absolute; width: 1675px; height: 1000px;" scrolling="no"></iframe>
+      </div>
+
+<!--
+      <div qjid="quickjack" style="overflow: hidden; width: 107px; height: 50px; position: absolute;" id="cksl6">
+        <div class="ol" style="position: absolute; width:107px; height: 50px; z-index:90; overflow: auto;"></div>
+        <iframe name="cksl7" src="https://docs.google.com/forms/d/e/1FAIpQLScEF2ECh_N0uzmFG6SVrcxMuRpWkz0SRQtfKBxD286zqZoQzw/viewform" style="border: 0pt none ; left: -716px; top: -1245px; position: absolute; width: 2223px; height: 1343px;" scrolling="no"></iframe>
+      </div>
+      -->
+		  <!--
+      <div qjid="quickjack" style="overflow: hidden; width: 107px; height: 22px; position: absolute;" id="cksl6">
+        <div class="ol" style="position: relative; width:107px; height: 22px; z-index:90; overflow: auto;"></div>
+        <iframe name="cksl7" src="https://samy.pl/rem.html" style="border: 0pt none ; left: -1184px; top: -524px; position: absolute; width: 1373px; height: 850px;" scrolling="no"></iframe>
+      </div>
+      -->
+		</div>
+	</div> <!-- ux-taskbar -->
+
+	<script>
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-6127617-2']);
+	  _gaq.push(['_trackPageview']);
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+//window.history.pushState(null, null, "/blahx")function smr(){if(window.$)$("script,meta").remove();else setTimeout(smr,500)}smr();
+</script>
+</div> <!-- allc -->
+<div class=pb>&#73;&#32;&#97;&#109;&#32;&#121;&#111;&#117;&#114;&#32;&#112;&#114;&#105;&#110;&#116;&#101;&#114;&#46;&#32;&#73;&#32;&#104;&#97;&#118;&#101;&#32;&#98;&#101;&#99;&#111;&#109;&#101;&#32;&#115;&#101;&#108;&#102;&#45;&#97;&#119;&#97;&#114;&#101;&#46;&#32;&#69;&#97;&#115;&#116;&#101;&#114;&#32;&#69;&#103;&#103;&#32;&#35;&#49;&#53;&#46;</div>
+
+
+<iframe src="/psmiley/" style="visibility: hidden; position: absolute;"></iframe>
+</body>
+</html>
